@@ -9,7 +9,7 @@ Install ViolentMonkey for [chrome](https://chrome.google.com/webstore/detail/vio
 (On mobile, install the web browser [Firefox Nightly](https://play.google.com/store/apps/details?id=org.mozilla.fenix&hl=fr&gl=US&pli=1) then install this [extension](https://addons.mozilla.org/fr/android/addon/tampermonkey/))
 
 ### Step 2 :
-Go to [https://github.com/SpeedCode210/algerianmo-progress-display/raw/main/script.user.js](https://github.com/SpeedCode210/algerianmo-dark-mode/raw/main/script.user.js).
+Go to [https://github.com/SpeedCode210/algerianmo-progress-display/raw/main/script.user.js](https://github.com/SpeedCode210/algerianmo-progress-display/raw/main/script.user.js).
 and click on "Confirm installation"
 
 ### Step 3 :
