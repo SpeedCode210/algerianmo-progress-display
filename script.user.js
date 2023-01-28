@@ -5,7 +5,7 @@
 // @include     http://algerianmo.com/*
 // @downloadURL https://github.com/SpeedCode210/algerianmo-progress/raw/main/script.user.js
 // @icon http://www.algerianmo.com/static/images/favicon.ico
-// @version     1.1
+// @version     1.2
 // @author      Raouf Ould Ali / SpeedCode#0050
 // @description 1/25/2023, 5:34:04 PM
 // ==/UserScript==
@@ -37,6 +37,7 @@ if(window.location.href.match(/algerianmo.com\/problems\/(a|nt|g|b|c)\/(?![0-9])
 }
 
 else if(window.location.href.match(/algerianmo.com\/accounts\/[0-9]/g)){
+  let t = 0;
   let a = 0;
   let b = 0;
   let c = 0;
@@ -54,10 +55,18 @@ else if(window.location.href.match(/algerianmo.com\/accounts\/[0-9]/g)){
           case "nt":nt++;break;
       }
     }
+
+
   }
+    problems = document.getElementsByTagName("tr");
+    for(let i = 0; i < problems.length; i++){
+    if(problems[i].innerHTML.match(/مسألة/g)){
+      t++;
+    }
+    }
 
   document.getElementsByClassName("row")[0].children[2].innerHTML += `
-  <p style="margin-top:10px;background: black;color: white;padding: 5px;border-radius: 5px;">الأساسيات : ${b} - الجبر : ${a} - التوفيقات : ${c} <br> الهندسة : ${g} - نظريات الأعداد : ${nt}</p>
+  <p style="margin-top:10px;background: black;color: white;padding: 5px;border-radius: 5px;">الأساسيات : %${Math.floor(100*b/31)} - الجبر : %${Math.floor(100*a/73)} - التوفيقات : %${Math.floor(100*c/45)} <br> الهندسة : %${Math.floor(100*g/41)} - نظريات الأعداد : %${Math.floor(100*nt/94)} - المجموع : ${t}</p>
   `;
 
 }
