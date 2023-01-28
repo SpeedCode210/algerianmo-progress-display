@@ -3,14 +3,14 @@
 // @namespace   Violentmonkey Scripts
 // @include     http://www.algerianmo.com/*
 // @include     http://algerianmo.com/*
-// @downloadURL https://github.com/SpeedCode210/algerianmo-progress-display/raw/main/script.user.js
+// @downloadURL https://github.com/SpeedCode210/algerianmo-progress/raw/main/script.user.js
 // @icon http://www.algerianmo.com/static/images/favicon.ico
-// @version     1.0
+// @version     1.1
 // @author      Raouf Ould Ali / SpeedCode#0050
 // @description 1/25/2023, 5:34:04 PM
 // ==/UserScript==
 
-if(window.location.href.match(/algerianmo.com\/problems\/(a|nt|g|b|c)\/(?![0-9])/g).length >= 1){
+if(window.location.href.match(/algerianmo.com\/problems\/(a|nt|g|b|c)\/(?![0-9])/g)){
   let cards = document.getElementsByClassName("card");
   let title = document.getElementsByTagName("h1")[0];
   let goodOnes = 0;
@@ -33,5 +33,31 @@ if(window.location.href.match(/algerianmo.com\/problems\/(a|nt|g|b|c)\/(?![0-9])
     +"<span class='text-danger' id='advancement'>"+badOnes+"</span>"
     +"<span class='text-secondary' id='advancement'>/" + cards.length + "</span>";
   console.log(cards.length);
+
+}
+
+else if(window.location.href.match(/algerianmo.com\/accounts\/[0-9]/g)){
+  let a = 0;
+  let b = 0;
+  let c = 0;
+  let g = 0;
+  let nt = 0;
+  let problems = document.getElementsByTagName("a");
+  for(let i = 0; i < problems.length; i++){
+    let match = problems[i].href.match(/(?<=\/problems\/)(b|a|nt|c|g)(?=\/[0-9]+)/g);
+    if(match){
+      switch(match[0]){
+          case "a":a++;break;
+          case "b":b++;break;
+          case "c":c++;break;
+          case "g":g++;break;
+          case "nt":nt++;break;
+      }
+    }
+  }
+
+  document.getElementsByClassName("row")[0].children[2].innerHTML += `
+  <p style="margin-top:10px;background: black;color: white;padding: 5px;border-radius: 5px;">الأساسيات : ${b} - الجبر : ${a} - التوفيقات : ${c} <br> الهندسة : ${g} - نظريات الأعداد : ${nt}</p>
+  `;
 
 }
