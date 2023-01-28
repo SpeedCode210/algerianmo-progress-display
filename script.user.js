@@ -32,8 +32,6 @@ if(window.location.href.match(/algerianmo.com\/problems\/(a|nt|g|b|c)\/(?![0-9])
     +"<span class='text-secondary' id='advancement'>.</span>"
     +"<span class='text-danger' id='advancement'>"+badOnes+"</span>"
     +"<span class='text-secondary' id='advancement'>/" + cards.length + "</span>";
-  console.log(cards.length);
-
 }
 
 else if(window.location.href.match(/algerianmo.com\/accounts\/[0-9]/g)){
