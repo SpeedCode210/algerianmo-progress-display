@@ -2,7 +2,7 @@
 // @name        algerianmo.com progress display
 // @namespace   Violentmonkey Scripts
 // @include     *algerianmo.com/*
-// @downloadURL https://github.com/SpeedCode210/algerianmo-progress/raw/main/script.user.js
+// @downloadURL https://github.com/SpeedCode210/algerianmo-progress-display/raw/main/script.user.js
 // @icon http://www.algerianmo.com/static/images/favicon.ico
 // @version     1.4.1
 // @author      Raouf Ould Ali / SpeedCode#0050
