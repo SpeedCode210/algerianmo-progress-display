@@ -1,16 +1,22 @@
 // ==UserScript==
 // @name        algerianmo.com progress display
 // @namespace   Violentmonkey Scripts
-// @include     http://www.algerianmo.com/*
-// @include     http://algerianmo.com/*
+// @include     *algerianmo.com/*
 // @downloadURL https://github.com/SpeedCode210/algerianmo-progress/raw/main/script.user.js
 // @icon http://www.algerianmo.com/static/images/favicon.ico
-// @version     1.3
+// @version     1.4.1
 // @author      Raouf Ould Ali / SpeedCode#0050
 // @description 1/25/2023, 5:34:04 PM
 // ==/UserScript==
-
-if(window.location.href.match(/algerianmo.com\/problems\/(a|nt|g|b|c)\/(?![0-9])/g)){
+let mod = window.location.href.match(/(?<=algerianmo.com\/problems\/)(a|nt|g|b|c)(?=\/(?![0-9]))/g);
+if(mod){
+  let whiteValue = "";
+  switch(mod[0]){
+      case "a": whiteValue = "56";break;
+      case "g": whiteValue = "20";break;
+      case "nt": whiteValue = "29";break;
+      case "c": whiteValue = "31";break;
+  }
   let cards = document.getElementsByClassName("card");
   let title = document.getElementsByTagName("h1")[0];
   let goodOnes = 0;
@@ -26,12 +32,16 @@ if(window.location.href.match(/algerianmo.com\/problems\/(a|nt|g|b|c)\/(?![0-9])
     if(header.style.backgroundColor == "rgb(86, 0, 0)" || header.style.backgroundColor == "rgb(99, 28, 28)" || header.style.backgroundColor == "rgb(237, 150, 158)")
       badOnes++;
   }
+
   title.innerHTML += " <span class='text-success' id='advancement'>"+goodOnes+"</span>"
     +"<span class='text-secondary' id='advancement'>.</span>"
     +"<span class='text-warning' id='advancement'>"+pendingOnes+"</span>"
     +"<span class='text-secondary' id='advancement'>.</span>"
     +"<span class='text-danger' id='advancement'>"+badOnes+"</span>"
-    +"<span class='text-secondary' id='advancement'>/" + cards.length + "</span>";
+    +"<span class='text-secondary' id='advancement'>/</span>"
+    +"<span id='advancement'>"+whiteValue+"</span>"
+    +"<span class='text-secondary' id='advancement'>.</span>"
+    +"<span class='text-secondary' id='advancement'>" + cards.length + "</span>";
 
 }
 
