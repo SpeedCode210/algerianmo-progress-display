@@ -4,10 +4,27 @@
 // @include     *algerianmo.com/*
 // @downloadURL https://github.com/SpeedCode210/algerianmo-progress-display/raw/main/script.user.js
 // @icon http://www.algerianmo.com/static/images/favicon.ico
-// @version     1.5
+// @version     1.6
 // @author      Raouf Ould Ali / SpeedCode#0050
 // @description 1/25/2023, 5:34:04 PM
 // ==/UserScript==
+document.getElementsByTagName('head')[0].innerHTML += `
+<style>
+.team-white{
+    background-color: white;
+    color: #212529;
+    border-radius: 5px;
+    font-size: 11px;
+    display: inline-block;
+    padding: 2px;
+    transform: translate(0,-6px);
+    font-weight: 600;
+}
+</style>
+`
+
+let now = new Date();
+
 let mod = window.location.href.match(/(?<=algerianmo.com\/problems\/)(a|nt|g|b|c)(?=\/(?![0-9]))/g);
 if(mod){
   let whiteValue = "";
@@ -25,12 +42,23 @@ if(mod){
 
   for(let i = 0; i < cards.length; i++){
     let header = cards[i].querySelector('.card-header');
-    if(header.style.backgroundColor == "rgb(7, 38, 15)" || header.style.backgroundColor == "rgb(159, 249, 156)"  || header.style.backgroundColor == "rgb(39, 79, 23)")
+    if((now.getMonth() == (4) - 1 && now.getDate() == (1))){
+       if(header.style.backgroundColor == "rgb(7, 38, 15)" || header.style.backgroundColor == "rgb(159, 249, 156)"  || header.style.backgroundColor == "rgb(39, 79, 23)")
+      badOnes++;
+    if(header.style.backgroundColor == "rgb(96, 63, 1)" || header.style.backgroundColor == "rgb(187, 93, 37)" || header.style.backgroundColor == "rgb(243, 166, 12)" || header.style.backgroundColor == "rgb(255, 228, 105)" || header.style.backgroundColor == "rgb(253, 255, 163)")
+      pendingOnes++;
+    if(header.style.backgroundColor == "rgb(86, 0, 0)" || header.style.backgroundColor == "rgb(99, 28, 28)" || header.style.backgroundColor == "rgb(237, 150, 158)")
+      goodOnes++;
+       }
+    else{
+      if(header.style.backgroundColor == "rgb(7, 38, 15)" || header.style.backgroundColor == "rgb(159, 249, 156)"  || header.style.backgroundColor == "rgb(39, 79, 23)")
       goodOnes++;
     if(header.style.backgroundColor == "rgb(96, 63, 1)" || header.style.backgroundColor == "rgb(187, 93, 37)" || header.style.backgroundColor == "rgb(243, 166, 12)" || header.style.backgroundColor == "rgb(255, 228, 105)" || header.style.backgroundColor == "rgb(253, 255, 163)")
       pendingOnes++;
     if(header.style.backgroundColor == "rgb(86, 0, 0)" || header.style.backgroundColor == "rgb(99, 28, 28)" || header.style.backgroundColor == "rgb(237, 150, 158)")
       badOnes++;
+    }
+
   }
 
   title.innerHTML += " <span class='text-success' id='advancement'>"+goodOnes+"</span>"
