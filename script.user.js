@@ -4,7 +4,7 @@
 // @include     *algerianmo.com/*
 // @downloadURL https://github.com/SpeedCode210/algerianmo-progress-display/raw/main/script.user.js
 // @icon http://www.algerianmo.com/static/images/favicon.ico
-// @version     1.6
+// @version     1.6.1
 // @author      Raouf Ould Ali / SpeedCode#0050
 // @description 1/25/2023, 5:34:04 PM
 // ==/UserScript==
@@ -32,7 +32,7 @@ if(mod){
       case "a": whiteValue = "48";break;
       case "g": whiteValue = "22";break;
       case "nt": whiteValue = "29";break;
-      case "c": whiteValue = "37";break;
+      case "c": whiteValue = "32";break;
   }
   let cards = document.getElementsByClassName("card");
   let title = document.getElementsByTagName("h1")[0];
