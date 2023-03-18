@@ -4,7 +4,7 @@
 // @include     *algerianmo.com/*
 // @downloadURL https://github.com/SpeedCode210/algerianmo-progress-display/raw/main/script.user.js
 // @icon http://www.algerianmo.com/static/images/favicon.ico
-// @version     1.7.3
+// @version     1.7.4
 // @author      Raouf Ould Ali / SpeedCode#0050
 // @description 1/25/2023, 5:34:04 PM
 // ==/UserScript==
@@ -16,6 +16,8 @@ const teamWhiteProblems = [118,119,120,121,122,123,162,163,164,166,170,171,172,1
                            112,113,97,98,114,115,116,117,57,58,59,60,65,66,67,73,74,75,76,61,62,63,64,68,69,77,
                            78,79,80,81,82,83,85,70,71,72,84];
 
+const trainingStartProblems = [3,28,29,30,33,34,43,44,50,51,53,55,86,1,2,32,35,36,37,38,39,40,41,42,46,47,48,52,54,56,49];
+
 document.getElementsByTagName('head')[0].innerHTML += `
 <style>
 .team-white{
@@ -24,7 +26,27 @@ document.getElementsByTagName('head')[0].innerHTML += `
     border-radius: 5px;
     font-size: 11px;
     display: inline-block;
-    padding: 2px;
+    padding: 3px;
+    transform: translate(0,-6px);
+    font-weight: 600;
+}
+.team-start{
+    background-color: #006bb3;
+    color: white;
+    border-radius: 5px;
+    font-size: 11px;
+    display: inline-block;
+    padding: 3px;
+    transform: translate(0,-6px);
+    font-weight: 600;
+}
+.team-green{
+    background-color: #006600;
+    color: white;
+    border-radius: 5px;
+    font-size: 11px;
+    display: inline-block;
+    padding: 3px;
     transform: translate(0,-6px);
     font-weight: 600;
 }
@@ -53,6 +75,10 @@ if(mod){
     let title = header.getElementsByTagName('a')[0];
     if(teamWhiteProblems.includes(parseInt(title.innerHTML.match(/[0-9]+/g)[0]))){
       title.innerHTML += `<span class="team-white">TEAM WHITE</span>`;
+    } else if(trainingStartProblems.includes(parseInt(title.innerHTML.match(/[0-9]+/g)[0]))){
+      title.innerHTML += `<span class="team-start">TRAINING START</span>`;
+    } else{
+      title.innerHTML += `<span class="team-green">TEAM GREEN</span>`;
     }
     if((now.getMonth() == (4) - 1 && now.getDate() == (1))){
        if(header.style.backgroundColor == "rgb(7, 38, 15)" || header.style.backgroundColor == "rgb(159, 249, 156)"  || header.style.backgroundColor == "rgb(39, 79, 23)")
