@@ -4,7 +4,7 @@
 // @include     *algerianmo.com/*
 // @downloadURL https://github.com/SpeedCode210/algerianmo-progress-display/raw/main/script.user.js
 // @icon http://www.algerianmo.com/static/images/favicon.ico
-// @version     1.7.4
+// @version     1.7.5
 // @author      Raouf Ould Ali / SpeedCode#0050
 // @description 1/25/2023, 5:34:04 PM
 // ==/UserScript==
@@ -163,7 +163,7 @@ else if(window.location.href.match(/algerianmo.com\/accounts\/[0-9]/g)){
 
   document.getElementsByClassName("row")[0].children[2].innerHTML += `
   <h6 style='text-align:center!important;'>Team White Instructions</h3><br>
-  <p style="margin-top:10px;background: white;color: black;padding: 5px;border-radius: 5px;">الجبر : %${Math.floor(100*a_w/48)} - التوفيقات : %${Math.floor(100*c_w/32)} - الهندسة : %${Math.floor(100*g_w/22)} <br> نظريات الأعداد : %${Math.floor(100*nt_w/29)} - المجموع : ${t_w}/${teamWhiteProblems.length}</p>
+  <p style="margin-top:10px;background: white;color: black;padding: 5px;border-radius: 5px;">الجبر : %${Math.floor(100*a_w/47)} - التوفيقات : %${Math.floor(100*c_w/32)} - الهندسة : %${Math.floor(100*g_w/22)} <br> نظريات الأعداد : %${Math.floor(100*nt_w/29)} - المجموع : ${t_w}/${teamWhiteProblems.length}</p>
   `;
 
 
