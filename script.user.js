@@ -4,7 +4,7 @@
 // @include     *algerianmo.com/*
 // @downloadURL https://github.com/SpeedCode210/algerianmo-progress-display/raw/main/script.user.js
 // @icon http://www.algerianmo.com/static/images/favicon.ico
-// @version     1.7.5
+// @version     1.7.6
 // @author      Raouf Ould Ali / SpeedCode#0050
 // @description 1/25/2023, 5:34:04 PM
 // ==/UserScript==
@@ -80,7 +80,7 @@ if(mod){
     } else{
       title.innerHTML += `<span class="team-green">TEAM GREEN</span>`;
     }
-    if((now.getMonth() == (4) - 1 && now.getDate() == (1))){
+    if((now.getMonth() == (4) - 1 && now.getDate() == (0))){
        if(header.style.backgroundColor == "rgb(7, 38, 15)" || header.style.backgroundColor == "rgb(159, 249, 156)"  || header.style.backgroundColor == "rgb(39, 79, 23)")
       badOnes++;
     if(header.style.backgroundColor == "rgb(96, 63, 1)" || header.style.backgroundColor == "rgb(187, 93, 37)" || header.style.backgroundColor == "rgb(243, 166, 12)" || header.style.backgroundColor == "rgb(255, 228, 105)" || header.style.backgroundColor == "rgb(253, 255, 163)")
