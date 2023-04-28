@@ -4,7 +4,7 @@
 // @include     *algerianmo.com/*
 // @downloadURL https://github.com/SpeedCode210/algerianmo-progress-display/raw/main/script.user.js
 // @icon http://www.algerianmo.com/static/images/favicon.ico
-// @version     1.7.7
+// @version     1.8
 // @author      Raouf Ould Ali / SpeedCode#0050
 // @description 1/25/2023, 5:34:04 PM
 // ==/UserScript==
@@ -98,16 +98,50 @@ if(mod){
     }
 
   }
-
-  title.innerHTML += " <span class='text-success' id='advancement'>"+goodOnes+"</span>"
-    +"<span class='text-secondary' id='advancement'>.</span>"
-    +"<span class='text-warning' id='advancement'>"+pendingOnes+"</span>"
-    +"<span class='text-secondary' id='advancement'>.</span>"
-    +"<span class='text-danger' id='advancement'>"+badOnes+"</span>"
-    +"<span class='text-secondary' id='advancement'>/</span>"
-    +"<span id='advancement'>"+whiteValue+"</span>"
-    +"<span class='text-secondary' id='advancement'>.</span>"
-    +"<span class='text-secondary' id='advancement'>" + cards.length + "</span>";
+  title.insertAdjacentHTML('beforebegin',`
+  <div style="
+    margin: 10px;
+    background: #2d2f37;
+    height: 25px;
+    direction: ltr;
+    border-radius: 24px;
+    box-shadow: 5px 5px 10px #0006;
+    position: relative;
+    color: white;
+"><div style="
+    z-index: 50;
+    width: 100%;
+    background: transparent;
+    height: 25px;
+    border-radius: 24px;
+    padding-right: 5px;
+    position: absolute;
+">` + cards.length + `</div><div style="
+    z-index: 20;
+    width: `+((badOnes+pendingOnes+goodOnes)*100/cards.length)+`%;
+    background-color: #832929;
+    height: 25px;
+    border-radius: 24px;
+    padding-right: 5px;
+    position: absolute;
+">`+badOnes+`</div><div style="
+    z-index: 30;
+    width: `+((pendingOnes+goodOnes)*100/cards.length)+`%;
+    background: #14458e;
+    height: 25px;
+    border-radius: 24px;
+    padding-right: 5px;
+    position: absolute;
+">`+pendingOnes+`</div><div style="
+    z-index: 40;
+    width: `+(goodOnes*100/cards.length)+`%;
+    background: #22773a;
+    height: 25px;
+    border-radius: 24px;
+    padding-right: 5px;
+    position: absolute;
+">`+goodOnes+`</div></div>
+  `);
 
 }
 
