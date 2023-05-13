@@ -4,7 +4,7 @@
 // @include     *algerianmo.com/*
 // @downloadURL https://github.com/SpeedCode210/algerianmo-progress-display/raw/main/script.user.js
 // @icon http://www.algerianmo.com/static/images/favicon.ico
-// @version     1.8
+// @version     1.9
 // @author      Raouf Ould Ali / SpeedCode#0050
 // @description 1/25/2023, 5:34:04 PM
 // ==/UserScript==
@@ -20,36 +20,13 @@ const trainingStartProblems = [3,28,29,30,33,34,43,44,50,51,53,55,86,1,2,32,35,3
 
 document.getElementsByTagName('head')[0].innerHTML += `
 <style>
-.team-white{
-    background-color: white;
-    color: #212529;
-    border-radius: 5px;
-    font-size: 11px;
+.team{
     display: inline-block;
-    padding: 3px;
-    transform: translate(0,-6px);
-    font-weight: 600;
+    width: 40px;
+    filter: drop-shadow(0px 0px 5px #fff);
+    border-radius: 0!important;
 }
-.team-start{
-    background-color: #006bb3;
-    color: white;
-    border-radius: 5px;
-    font-size: 11px;
-    display: inline-block;
-    padding: 3px;
-    transform: translate(0,-6px);
-    font-weight: 600;
-}
-.team-green{
-    background-color: #006600;
-    color: white;
-    border-radius: 5px;
-    font-size: 11px;
-    display: inline-block;
-    padding: 3px;
-    transform: translate(0,-6px);
-    font-weight: 600;
-}
+
 </style>
 `
 
@@ -74,11 +51,11 @@ if(mod){
     let header = cards[i].querySelector('.card-header');
     let title = header.getElementsByTagName('a')[0];
     if(teamWhiteProblems.includes(parseInt(title.innerHTML.match(/[0-9]+/g)[0]))){
-      title.innerHTML += `<span class="team-white">WHITE TEAM</span>`;
+      title.innerHTML += `<img class="team" src="https://raw.githubusercontent.com/SpeedCode210/algerianmo-progress-display/main/badge-white.png">`;
     } else if(trainingStartProblems.includes(parseInt(title.innerHTML.match(/[0-9]+/g)[0]))){
-      title.innerHTML += `<span class="team-start">TRAINING START</span>`;
+      title.innerHTML += `<img class="team" src="https://raw.githubusercontent.com/SpeedCode210/algerianmo-progress-display/main/badge-start.png">`;
     } else{
-      title.innerHTML += `<span class="team-green">GREEN TEAM</span>`;
+      title.innerHTML += `<img class="team" src="https://raw.githubusercontent.com/SpeedCode210/algerianmo-progress-display/main/badge-green.png">`;
     }
     if((now.getMonth() == (4) - 1 && now.getDate() == (0))){
        if(header.style.backgroundColor == "rgb(7, 38, 15)" || header.style.backgroundColor == "rgb(159, 249, 156)"  || header.style.backgroundColor == "rgb(39, 79, 23)")
