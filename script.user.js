@@ -4,7 +4,7 @@
 // @include     *algerianmo.com/*
 // @downloadURL https://github.com/SpeedCode210/algerianmo-progress-display/raw/main/script.user.js
 // @icon http://www.algerianmo.com/static/images/favicon.ico
-// @version     1.9
+// @version     1.9.1
 // @author      Raouf Ould Ali / SpeedCode#0050
 // @description 1/25/2023, 5:34:04 PM
 // ==/UserScript==
@@ -101,7 +101,7 @@ if(mod){
     border-radius: 24px;
     padding-right: 5px;
     position: absolute;
-">`+badOnes+`</div><div style="
+">`+(goodOnes+pendingOnes+badOnes)+`</div><div style="
     z-index: 30;
     width: `+((pendingOnes+goodOnes)*100/cards.length)+`%;
     background: #14458e;
@@ -109,7 +109,7 @@ if(mod){
     border-radius: 24px;
     padding-right: 5px;
     position: absolute;
-">`+pendingOnes+`</div><div style="
+">`+(goodOnes+pendingOnes)+`</div><div style="
     z-index: 40;
     width: `+(goodOnes*100/cards.length)+`%;
     background: #22773a;
