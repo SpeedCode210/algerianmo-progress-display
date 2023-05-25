@@ -4,7 +4,7 @@
 // @include     *algerianmo.com/*
 // @downloadURL https://github.com/SpeedCode210/algerianmo-progress-display/raw/main/script.user.js
 // @icon http://www.algerianmo.com/static/images/favicon.ico
-// @version     1.9.1
+// @version     1.10
 // @author      Raouf Ould Ali / SpeedCode#0050
 // @description 1/25/2023, 5:34:04 PM
 // ==/UserScript==
@@ -46,36 +46,39 @@ if(mod){
   let goodOnes = 0;
   let pendingOnes = 0;
   let badOnes = 0;
+  let whiteOnes = 0;
+  let goodWhiteOnes = 0;
+  let pendingWhiteOnes = 0;
+  let badWhiteOnes = 0;
 
   for(let i = 0; i < cards.length; i++){
     let header = cards[i].querySelector('.card-header');
     let title = header.getElementsByTagName('a')[0];
     if(teamWhiteProblems.includes(parseInt(title.innerHTML.match(/[0-9]+/g)[0]))){
       title.innerHTML += `<img class="team" src="https://raw.githubusercontent.com/SpeedCode210/algerianmo-progress-display/main/badge-white.png">`;
+      whiteOnes++;
+        if(header.style.backgroundColor == "rgb(7, 38, 15)" || header.style.backgroundColor == "rgb(159, 249, 156)"  || header.style.backgroundColor == "rgb(39, 79, 23)")
+      goodWhiteOnes++;
+    if(header.style.backgroundColor == "rgb(96, 63, 1)" || header.style.backgroundColor == "rgb(187, 93, 37)" || header.style.backgroundColor == "rgb(243, 166, 12)" || header.style.backgroundColor == "rgb(255, 228, 105)" || header.style.backgroundColor == "rgb(253, 255, 163)")
+      pendingWhiteOnes++;
+    if(header.style.backgroundColor == "rgb(86, 0, 0)" || header.style.backgroundColor == "rgb(99, 28, 28)" || header.style.backgroundColor == "rgb(237, 150, 158)")
+      badWhiteOnes++;
     } else if(trainingStartProblems.includes(parseInt(title.innerHTML.match(/[0-9]+/g)[0]))){
       title.innerHTML += `<img class="team" src="https://raw.githubusercontent.com/SpeedCode210/algerianmo-progress-display/main/badge-start.png">`;
     } else{
       title.innerHTML += `<img class="team" src="https://raw.githubusercontent.com/SpeedCode210/algerianmo-progress-display/main/badge-green.png">`;
     }
-    if((now.getMonth() == (4) - 1 && now.getDate() == (0))){
-       if(header.style.backgroundColor == "rgb(7, 38, 15)" || header.style.backgroundColor == "rgb(159, 249, 156)"  || header.style.backgroundColor == "rgb(39, 79, 23)")
-      badOnes++;
-    if(header.style.backgroundColor == "rgb(96, 63, 1)" || header.style.backgroundColor == "rgb(187, 93, 37)" || header.style.backgroundColor == "rgb(243, 166, 12)" || header.style.backgroundColor == "rgb(255, 228, 105)" || header.style.backgroundColor == "rgb(253, 255, 163)")
-      pendingOnes++;
-    if(header.style.backgroundColor == "rgb(86, 0, 0)" || header.style.backgroundColor == "rgb(99, 28, 28)" || header.style.backgroundColor == "rgb(237, 150, 158)")
-      goodOnes++;
-       }
-    else{
-      if(header.style.backgroundColor == "rgb(7, 38, 15)" || header.style.backgroundColor == "rgb(159, 249, 156)"  || header.style.backgroundColor == "rgb(39, 79, 23)")
+     if(header.style.backgroundColor == "rgb(7, 38, 15)" || header.style.backgroundColor == "rgb(159, 249, 156)"  || header.style.backgroundColor == "rgb(39, 79, 23)")
       goodOnes++;
     if(header.style.backgroundColor == "rgb(96, 63, 1)" || header.style.backgroundColor == "rgb(187, 93, 37)" || header.style.backgroundColor == "rgb(243, 166, 12)" || header.style.backgroundColor == "rgb(255, 228, 105)" || header.style.backgroundColor == "rgb(253, 255, 163)")
       pendingOnes++;
     if(header.style.backgroundColor == "rgb(86, 0, 0)" || header.style.backgroundColor == "rgb(99, 28, 28)" || header.style.backgroundColor == "rgb(237, 150, 158)")
       badOnes++;
-    }
+    
 
   }
   title.insertAdjacentHTML('beforebegin',`
+  <h5 style="text-align:center;">Progress</h5>
   <div style="
     margin: 10px;
     background: #2d2f37;
@@ -118,6 +121,52 @@ if(mod){
     padding-right: 5px;
     position: absolute;
 ">`+goodOnes+`</div></div>
+  `);
+
+      title.insertAdjacentHTML('beforebegin',`
+      <h5 style="text-align:center;">White Insutructions</h5>
+  <div style="
+    margin: 10px;
+    background: #2d2f37;
+    height: 25px;
+    direction: ltr;
+    border-radius: 24px;
+    box-shadow: 5px 5px 10px #0006;
+    position: relative;
+    color: white;
+"><div style="
+    z-index: 50;
+    width: 100%;
+    background: transparent;
+    height: 25px;
+    border-radius: 24px;
+    padding-right: 5px;
+    position: absolute;
+">` + whiteOnes + `</div><div style="
+    z-index: 20;
+    width: `+((badWhiteOnes+pendingWhiteOnes+goodWhiteOnes)*100/whiteOnes)+`%;
+    background-color: #832929;
+    height: 25px;
+    border-radius: 24px;
+    padding-right: 5px;
+    position: absolute;
+">`+(goodWhiteOnes+pendingWhiteOnes+badWhiteOnes)+`</div><div style="
+    z-index: 30;
+    width: `+((pendingWhiteOnes+goodWhiteOnes)*100/whiteOnes)+`%;
+    background: #14458e;
+    height: 25px;
+    border-radius: 24px;
+    padding-right: 5px;
+    position: absolute;
+">`+(goodWhiteOnes+pendingWhiteOnes)+`</div><div style="
+    z-index: 40;
+    width: `+(goodWhiteOnes*100/whiteOnes)+`%;
+    background: #22773a;
+    height: 25px;
+    border-radius: 24px;
+    padding-right: 5px;
+    position: absolute;
+">`+goodWhiteOnes+`</div></div>
   `);
 
 }
