@@ -4,7 +4,7 @@
 // @include     *algerianmo.com/*
 // @downloadURL https://github.com/SpeedCode210/algerianmo-progress-display/raw/main/script.user.js
 // @icon http://www.algerianmo.com/static/images/favicon.ico
-// @version     1.10
+// @version     1.10.1
 // @author      Raouf Ould Ali / SpeedCode#0050
 // @description 1/25/2023, 5:34:04 PM
 // ==/UserScript==
@@ -124,7 +124,7 @@ if(mod){
   `);
 
       title.insertAdjacentHTML('beforebegin',`
-      <h5 style="text-align:center;">White Insutructions</h5>
+      <h5 style="text-align:center;">White Instructions</h5>
   <div style="
     margin: 10px;
     background: #2d2f37;
