@@ -4,7 +4,7 @@
 // @include     *algerianmo.com/*
 // @downloadURL https://github.com/SpeedCode210/algerianmo-progress-display/raw/main/script.user.js
 // @icon http://www.algerianmo.com/static/images/favicon.ico
-// @version     2.1
+// @version     2.2
 // @author      Raouf Ould Ali / SpeedCode#0050
 // @description 1/25/2023, 5:34:04 PM
 // ==/UserScript==
@@ -17,9 +17,9 @@ const problems = {
   'red': [296, 297]
 };
 const pbNumbers = {
-  'white': {'a':39, 'g':19,'c':18,'nt':25},
-  'yellow': {'a':14, 'g':22,'c':25,'nt':66},
-  'green':{'a':19, 'g':0.1, 'c':2, 'nt':2},
+  'white': {'a':49, 'g':20,'c':18,'nt':26},
+  'yellow': {'a':9, 'g':20,'c':25,'nt':66},
+  'green':{'a':13, 'g':1, 'c':2, 'nt':0.1},
   'red': {'a':1, 'g':0.1,'c':0.1,'nt':1}
 };
 
